@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace cashRegister
+namespace cashRegister //how do you change zis? (the name)
 {
     public partial class Form1 : Form
     {
@@ -17,9 +17,12 @@ namespace cashRegister
         like Mr. T says, basics are most important, worry about 
         aesthetics only if there's time*/
 
-        const double burgCost = 2.49("C");
+        //const double burgCost = 2.49("C"); //can't add the C
+        //const double fryCost = 1.89("C");
+        //const double drinkCost = 0.99("C");
+        //const double taxRate = 0.13;
 
-        
+
         public Form1()
         {
             InitializeComponent();
