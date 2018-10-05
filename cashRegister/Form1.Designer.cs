@@ -44,6 +44,8 @@
             this.receiptButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.totalLine = new System.Windows.Forms.Label();
+            this.tendBox = new System.Windows.Forms.TextBox();
+            this.newOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // fryBox
@@ -164,7 +166,7 @@
             this.changeButton.BackColor = System.Drawing.Color.Gainsboro;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeButton.Location = new System.Drawing.Point(36, 331);
+            this.changeButton.Location = new System.Drawing.Point(36, 338);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(186, 25);
             this.changeButton.TabIndex = 12;
@@ -182,6 +184,7 @@
             this.receiptButton.TabIndex = 13;
             this.receiptButton.Text = "Print Receipt";
             this.receiptButton.UseVisualStyleBackColor = false;
+            this.receiptButton.Click += new System.EventHandler(this.receiptButton_Click);
             // 
             // titleLabel
             // 
@@ -203,12 +206,33 @@
             this.totalLine.TabIndex = 15;
             this.totalLine.Text = "_______________________________";
             // 
+            // tendBox
+            // 
+            this.tendBox.Location = new System.Drawing.Point(218, 301);
+            this.tendBox.Name = "tendBox";
+            this.tendBox.Size = new System.Drawing.Size(58, 20);
+            this.tendBox.TabIndex = 16;
+            // 
+            // newOrderButton
+            // 
+            this.newOrderButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.newOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.newOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newOrderButton.Location = new System.Drawing.Point(288, 412);
+            this.newOrderButton.Name = "newOrderButton";
+            this.newOrderButton.Size = new System.Drawing.Size(176, 26);
+            this.newOrderButton.TabIndex = 17;
+            this.newOrderButton.Text = "New Order";
+            this.newOrderButton.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(653, 450);
+            this.Controls.Add(this.newOrderButton);
+            this.Controls.Add(this.tendBox);
             this.Controls.Add(this.totalLine);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.receiptButton);
@@ -250,6 +274,8 @@
         private System.Windows.Forms.Button receiptButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label totalLine;
+        private System.Windows.Forms.TextBox tendBox;
+        private System.Windows.Forms.Button newOrderButton;
     }
 }
 

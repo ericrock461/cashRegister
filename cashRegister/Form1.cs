@@ -27,5 +27,13 @@ namespace cashRegister //how do you change zis? (the name)
         {
             InitializeComponent();
         }
+
+        private void receiptButton_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            Pen drawPen = new Pen(Color.Black, 1);
+            g.DrawRectangle(drawPen, 250, 63, 300, 335);
+
+        }
     }
 }
