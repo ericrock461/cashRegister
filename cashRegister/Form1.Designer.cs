@@ -46,6 +46,7 @@
             this.totalLine = new System.Windows.Forms.Label();
             this.tendBox = new System.Windows.Forms.TextBox();
             this.newOrderButton = new System.Windows.Forms.Button();
+            this.tendErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fryBox
@@ -110,6 +111,7 @@
             this.totalButton.TabIndex = 6;
             this.totalButton.Text = "Calculate Total";
             this.totalButton.UseVisualStyleBackColor = false;
+            this.totalButton.Click += new System.EventHandler(this.totalButton_Click);
             // 
             // subTotLabel
             // 
@@ -145,17 +147,17 @@
             // 
             this.tendLabel.AutoSize = true;
             this.tendLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tendLabel.Location = new System.Drawing.Point(33, 302);
+            this.tendLabel.Location = new System.Drawing.Point(33, 297);
             this.tendLabel.Name = "tendLabel";
-            this.tendLabel.Size = new System.Drawing.Size(158, 16);
+            this.tendLabel.Size = new System.Drawing.Size(68, 16);
             this.tendLabel.TabIndex = 10;
-            this.tendLabel.Text = "I strongly dislike this word";
+            this.tendLabel.Text = "Tendered";
             // 
             // changeLabel
             // 
             this.changeLabel.AutoSize = true;
             this.changeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeLabel.Location = new System.Drawing.Point(33, 378);
+            this.changeLabel.Location = new System.Drawing.Point(33, 387);
             this.changeLabel.Name = "changeLabel";
             this.changeLabel.Size = new System.Drawing.Size(55, 16);
             this.changeLabel.TabIndex = 11;
@@ -166,12 +168,13 @@
             this.changeButton.BackColor = System.Drawing.Color.Gainsboro;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeButton.Location = new System.Drawing.Point(36, 338);
+            this.changeButton.Location = new System.Drawing.Point(36, 350);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(186, 25);
             this.changeButton.TabIndex = 12;
             this.changeButton.Text = "Calculate Change";
             this.changeButton.UseVisualStyleBackColor = false;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // receiptButton
             // 
@@ -194,7 +197,7 @@
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(653, 39);
             this.titleLabel.TabIndex = 14;
-            this.titleLabel.Text = "Generic Fast Food Place";
+            this.titleLabel.Text = "Generic Food Place";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // totalLine
@@ -208,7 +211,7 @@
             // 
             // tendBox
             // 
-            this.tendBox.Location = new System.Drawing.Point(218, 301);
+            this.tendBox.Location = new System.Drawing.Point(164, 297);
             this.tendBox.Name = "tendBox";
             this.tendBox.Size = new System.Drawing.Size(58, 20);
             this.tendBox.TabIndex = 16;
@@ -225,12 +228,23 @@
             this.newOrderButton.Text = "New Order";
             this.newOrderButton.UseVisualStyleBackColor = false;
             // 
+            // tendErrorLabel
+            // 
+            this.tendErrorLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.tendErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tendErrorLabel.ForeColor = System.Drawing.Color.OrangeRed;
+            this.tendErrorLabel.Location = new System.Drawing.Point(37, 320);
+            this.tendErrorLabel.Name = "tendErrorLabel";
+            this.tendErrorLabel.Size = new System.Drawing.Size(185, 17);
+            this.tendErrorLabel.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(653, 450);
+            this.Controls.Add(this.tendErrorLabel);
             this.Controls.Add(this.newOrderButton);
             this.Controls.Add(this.tendBox);
             this.Controls.Add(this.totalLine);
@@ -251,6 +265,7 @@
             this.Controls.Add(this.fryBox);
             this.Name = "Form1";
             this.Text = "Kashi Rejisutaa";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +291,7 @@
         private System.Windows.Forms.Label totalLine;
         private System.Windows.Forms.TextBox tendBox;
         private System.Windows.Forms.Button newOrderButton;
+        private System.Windows.Forms.Label tendErrorLabel;
     }
 }
 
