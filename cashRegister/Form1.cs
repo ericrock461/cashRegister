@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace cashRegister //how do you change zis? (the name)
+namespace cashRegister
 {
     public partial class Form1 : Form
     {
@@ -17,14 +17,14 @@ namespace cashRegister //how do you change zis? (the name)
         like Mr. T says, basics are most important, worry about 
         aesthetics only if there's time*/
 
-        //const double burgCost = 2.49("C"); //can't add the C
-        //const double fryCost = 1.89("C");
-        //const double drinkCost = 0.99("C");
-        //const double taxRate = 0.13;
+        const double BURGER_COST = 2.49;
+        const double FRY_COST = 1.89;
+        const double DRINK_COST = 0.99;
+        const double TAX_RATE = 0.13;
 
         double burgNumb = 0;
-        double frynumb = 0;
-        double drinknumb = 0;
+        double fryNumb = 0;
+        double drinkNumb = 0;
         double totalCost = 0;
         double taxAmount = 0;
         double totalWithTax = 0;
@@ -34,8 +34,6 @@ namespace cashRegister //how do you change zis? (the name)
         public Form1()
         {
             InitializeComponent();
-
-            tendErrorLabel.Visible = false;
         }
 
         private void receiptButton_Click(object sender, EventArgs e)
@@ -44,7 +42,36 @@ namespace cashRegister //how do you change zis? (the name)
             Pen drawPen = new Pen(Color.Black, 1);
             g.DrawRectangle(drawPen, 250, 63, 300, 335);
 
+            //g.drawString "all the stuff you need"
 
+        }
+
+        private void totalButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                calcErrorLabel.Text = null;
+
+                burgNumb = Convert.ToDouble(burgBox.Text);
+                fryNumb = Convert.ToDouble(fryBox.Text);
+                drinkNumb = Convert.ToDouble(drinkBox.Text);
+
+                double burgTotal = BURGER_COST * burgNumb;
+                double fryTotal = FRY_COST * fryNumb;
+                double drinkTotal = DRINK_COST * drinkNumb;
+                totalCost = burgTotal + fryTotal + drinkTotal;
+
+                subTotDisplayLabel.Text = totalCost.ToString("C");
+                taxAmount = totalCost * 0.13;
+                taxDisplayLabel.Text = taxAmount.ToString("C");
+
+                totalWithTax = taxAmount + totalCost;
+                totalDisplayLabel.Text = totalWithTax.ToString("C");
+            }
+            catch
+            {
+                calcErrorLabel.Text = "Numerical values only"; 
+            }
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -52,7 +79,7 @@ namespace cashRegister //how do you change zis? (the name)
             try
             {
                 changeAmount = Convert.ToInt16(tendBox.Text);
-                tendErrorLabel.Visible = true;
+                //changeAmount = tendBox.Text - totalWithTax;
                 tendErrorLabel.Text = "Thank you!";
 
                 /*totalPrice = basePrice + toppingNumber * pricePerTopping;
@@ -61,19 +88,19 @@ namespace cashRegister //how do you change zis? (the name)
             }
             catch
             {
-                tendErrorLabel.Visible = true;
                 tendErrorLabel.Text = "Sorry, we accept cash only";
+                //thank yo- wait a minute... that's not enough (not enough money)
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //oops
         }
 
-        private void totalButton_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-
+            //nevermind this here
         }
     }
 }
