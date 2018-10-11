@@ -25,25 +25,27 @@ namespace cashRegister
         double burgNumb = 0;
         double fryNumb = 0;
         double drinkNumb = 0;
+
+        double burgTotal;
+        double fryTotal;
+        double drinkTotal;
+
         double totalCost = 0;
         double taxAmount = 0;
         double totalWithTax = 0;
         double tendAmount = 0;
         double changeAmount = 0;
 
+        //don't forget to add comments, btw...
+
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private void receiptButton_Click(object sender, EventArgs e)
-        {
-            Graphics g = this.CreateGraphics();
-            Pen drawPen = new Pen(Color.Black, 1);
-            g.DrawRectangle(drawPen, 250, 63, 300, 335);
-
-            //g.drawString "all the stuff you need"
-
+            subTotDisplayLabel.Text = null;
+            taxDisplayLabel.Text = null;
+            totalDisplayLabel.Text = null;
+            calcChangeLabel.Text = null;
         }
 
         private void totalButton_Click(object sender, EventArgs e)
@@ -56,9 +58,10 @@ namespace cashRegister
                 fryNumb = Convert.ToDouble(fryBox.Text);
                 drinkNumb = Convert.ToDouble(drinkBox.Text);
 
-                double burgTotal = BURGER_COST * burgNumb;
-                double fryTotal = FRY_COST * fryNumb;
-                double drinkTotal = DRINK_COST * drinkNumb;
+                burgTotal = BURGER_COST * burgNumb;
+                fryTotal = FRY_COST * fryNumb;
+                drinkTotal = DRINK_COST * drinkNumb;
+
                 totalCost = burgTotal + fryTotal + drinkTotal;
 
                 subTotDisplayLabel.Text = totalCost.ToString("C");
@@ -78,19 +81,53 @@ namespace cashRegister
         {
             try
             {
-                changeAmount = Convert.ToInt16(tendBox.Text);
-                //changeAmount = tendBox.Text - totalWithTax;
+                tendAmount = Convert.ToDouble(tendBox.Text);
+                changeAmount = Convert.ToDouble(tendBox.Text);
+                changeAmount = tendAmount - totalWithTax;
+                calcChangeLabel.Text = changeAmount.ToString("C");
                 tendErrorLabel.Text = "Thank you!";
-
-                /*totalPrice = basePrice + toppingNumber * pricePerTopping;
-                outputLabel.Text = "With " + toppingNumber + " topping(s), your pizza comes to " +
-                    totalPrice.ToString("C");*/
             }
             catch
             {
                 tendErrorLabel.Text = "Sorry, we accept cash only";
-                //thank yo- wait a minute... that's not enough (not enough money)
             }
+        }
+
+        private void receiptButton_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            Pen drawPen = new Pen(Color.Black, 1);
+            SolidBrush drawBrush = new SolidBrush(Color.White);
+            g.DrawRectangle(drawPen, 242, 51, 300, 335);
+            g.FillRectangle(drawBrush, 243, 52, 299, 334);
+
+            drawBrush.Color = Color.Black;
+            Font drawFont = new Font("Arial", 8, FontStyle.Regular);
+            g.DrawString("Generic Food Place Inc.", drawFont, drawBrush, 250, 56);
+
+            /* EXAMPLE: "With " + toppingNumber + " topping(s), your pizza comes to " +
+                    totalPrice.ToString("C"); */
+
+            //remember, with strings, you can have everything in the same line, you don't need 
+            //to make separate strings. This might make things simpler for you, I don't know.
+        }
+
+        private void newOrderButton_Click(object sender, EventArgs e)
+        {
+            //when this button is pushed, clear all on-screen input
+            burgBox.Text = null;
+            fryBox.Text = null;
+            drinkBox.Text = null;
+            calcChangeLabel.Text = null;
+            subTotDisplayLabel.Text = null;
+            taxDisplayLabel.Text = null;
+            totalDisplayLabel.Text = null;
+            tendBox.Text = null;
+            tendErrorLabel.Text = null;
+            calcChangeLabel.Text = null;
+
+            //remember to reset your variables too!
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

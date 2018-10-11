@@ -51,6 +51,7 @@
             this.taxDisplayLabel = new System.Windows.Forms.Label();
             this.totalDisplayLabel = new System.Windows.Forms.Label();
             this.calcErrorLabel = new System.Windows.Forms.Label();
+            this.calcChangeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fryBox
@@ -140,10 +141,10 @@
             // totalLabel
             // 
             this.totalLabel.AutoSize = true;
-            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalLabel.Location = new System.Drawing.Point(33, 260);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(39, 16);
+            this.totalLabel.Size = new System.Drawing.Size(44, 16);
             this.totalLabel.TabIndex = 9;
             this.totalLabel.Text = "Total";
             // 
@@ -231,6 +232,7 @@
             this.newOrderButton.TabIndex = 17;
             this.newOrderButton.Text = "New Order";
             this.newOrderButton.UseVisualStyleBackColor = false;
+            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
             // tendErrorLabel
             // 
@@ -250,6 +252,7 @@
             this.subTotDisplayLabel.Size = new System.Drawing.Size(35, 13);
             this.subTotDisplayLabel.TabIndex = 19;
             this.subTotDisplayLabel.Text = "label1";
+            this.subTotDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.subTotDisplayLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // taxDisplayLabel
@@ -260,15 +263,18 @@
             this.taxDisplayLabel.Size = new System.Drawing.Size(35, 13);
             this.taxDisplayLabel.TabIndex = 20;
             this.taxDisplayLabel.Text = "label2";
+            this.taxDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // totalDisplayLabel
             // 
             this.totalDisplayLabel.AutoSize = true;
-            this.totalDisplayLabel.Location = new System.Drawing.Point(187, 263);
+            this.totalDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalDisplayLabel.Location = new System.Drawing.Point(181, 263);
             this.totalDisplayLabel.Name = "totalDisplayLabel";
-            this.totalDisplayLabel.Size = new System.Drawing.Size(35, 13);
+            this.totalDisplayLabel.Size = new System.Drawing.Size(41, 13);
             this.totalDisplayLabel.TabIndex = 21;
             this.totalDisplayLabel.Text = "label3";
+            this.totalDisplayLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // calcErrorLabel
             // 
@@ -280,12 +286,23 @@
             this.calcErrorLabel.Size = new System.Drawing.Size(185, 17);
             this.calcErrorLabel.TabIndex = 22;
             // 
+            // calcChangeLabel
+            // 
+            this.calcChangeLabel.AutoSize = true;
+            this.calcChangeLabel.Location = new System.Drawing.Point(187, 390);
+            this.calcChangeLabel.Name = "calcChangeLabel";
+            this.calcChangeLabel.Size = new System.Drawing.Size(35, 13);
+            this.calcChangeLabel.TabIndex = 23;
+            this.calcChangeLabel.Text = "label1";
+            this.calcChangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(565, 450);
+            this.Controls.Add(this.calcChangeLabel);
             this.Controls.Add(this.calcErrorLabel);
             this.Controls.Add(this.totalDisplayLabel);
             this.Controls.Add(this.taxDisplayLabel);
@@ -342,6 +359,7 @@
         private System.Windows.Forms.Label taxDisplayLabel;
         private System.Windows.Forms.Label totalDisplayLabel;
         private System.Windows.Forms.Label calcErrorLabel;
+        private System.Windows.Forms.Label calcChangeLabel;
     }
 }
 
