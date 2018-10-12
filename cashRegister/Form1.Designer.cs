@@ -327,7 +327,7 @@
             this.Controls.Add(this.burgBox);
             this.Controls.Add(this.fryBox);
             this.Name = "Form1";
-            this.Text = "Kashi Rejisutaa";
+            this.Text = "Cash Register";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
